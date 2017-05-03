@@ -1043,6 +1043,12 @@ pre code {
   .col-sm-pull-11 {
     right: 91.66666666666666%;
   }
+  .center
+{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
   .col-sm-offset-1 {
     margin-left: 8.333333333333332%;
   }

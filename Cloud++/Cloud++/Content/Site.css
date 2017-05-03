@@ -22,3 +22,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+center
+.logo
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo
+{
+    margin-left:55px;
+}
+
+.fix
+{
+    padding-right:82px;
+}
+
