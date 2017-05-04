@@ -9,7 +9,7 @@ namespace Cloud__.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Cloud__.Models.ApplicationDbContext";
         }
 
