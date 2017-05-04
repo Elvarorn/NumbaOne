@@ -23,7 +23,9 @@ textarea {
     max-width: 280px;
 }
 
-center
+
+
+.center
 .logo
 {
     display:flex;
@@ -36,8 +38,4 @@ center
     margin-left:55px;
 }
 
-.fix
-{
-    padding-right:82px;
-}
 
