@@ -9,8 +9,7 @@ namespace Cloud__.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "Cloud__.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Cloud__.Models.ApplicationDbContext context)

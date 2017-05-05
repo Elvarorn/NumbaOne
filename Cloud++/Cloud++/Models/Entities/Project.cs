@@ -7,5 +7,7 @@ namespace Cloud__.Models.Entities
 {
     public class Project
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }
