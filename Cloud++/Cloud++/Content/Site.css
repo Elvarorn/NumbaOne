@@ -38,3 +38,22 @@ textarea {
     margin-left:55px;
 }
 
+
+.midja {
+    display: flex;
+    justify-content: center;
+}
+
+.floatleft {
+    float:left; 
+    width: 80%;
+    background-color: #ff0000;
+    height: 400px;
+}
+
+.floatright {
+float: right;
+    background-color: #00ff00;
+    height: 400px;
+    width: 20%;
+}
