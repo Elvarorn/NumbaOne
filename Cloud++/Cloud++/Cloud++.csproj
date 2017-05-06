@@ -209,11 +209,22 @@
     <Compile Include="Migrations\201705051352069_UserName.Designer.cs">
       <DependentUpon>201705051352069_UserName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705061713245_filesadded.cs" />
+    <Compile Include="Migrations\201705061713245_filesadded.Designer.cs">
+      <DependentUpon>201705061713245_filesadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705061716455_foldersadded.cs" />
+    <Compile Include="Migrations\201705061716455_foldersadded.Designer.cs">
+      <DependentUpon>201705061716455_foldersadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Entities\File.cs" />
+    <Compile Include="Models\Entities\Folder.cs" />
     <Compile Include="Models\Entities\Project.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\ProjectViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProjectsService.cs" />
     <Compile Include="Startup.cs" />
@@ -243,7 +254,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -295,6 +308,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705051352069_UserName.resx">
       <DependentUpon>201705051352069_UserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061713245_filesadded.resx">
+      <DependentUpon>201705061713245_filesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061716455_foldersadded.resx">
+      <DependentUpon>201705061716455_foldersadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

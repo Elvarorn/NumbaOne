@@ -21,7 +21,9 @@ namespace Cloud__.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        IDbSet<Project> Projects { get; set; }
+        public IDbSet<Project> Projects { get; set; }
+        public IDbSet<File> Files { get; set; }
+        public IDbSet<Folder> Folders { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
