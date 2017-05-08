@@ -4,6 +4,13 @@
     ViewBag.Title = "Contact";
 }
 <!DOCTYPE html>
+
+@using (Html.BeginForm("Invite", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
+    <input type="submit" value="Invite" />
+}
+
 <html lang="en">
 <head>
     <title>ACE in Action</title>
