@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+using Cloud__.Models;
+
 namespace Cloud__.Controllers
 {
     public class HomeController : Controller
@@ -16,15 +19,23 @@ namespace Cloud__.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+         
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Code = "alert('Hello World');";
+            ViewBag.DocumentID = 17; //Þurfum að breyta í ID-ið í gagnagrunninum, þetta er harðkóðað
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveCode(EditorViewModel model)
+        {
+
+            return View("Home");
         }
     }
 }
