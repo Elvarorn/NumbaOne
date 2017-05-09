@@ -35,7 +35,7 @@ namespace Cloud__.Controllers
 
             _fs.SaveData(data);
 
-            return View(RedirectToAction("AceEditor"));
+            return View();
         }
     }
 }

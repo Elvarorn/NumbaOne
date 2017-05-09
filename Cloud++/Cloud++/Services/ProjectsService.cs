@@ -1,5 +1,6 @@
 ﻿using Cloud__.Models;
 using Cloud__.Models.Entities;
+using Cloud__.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,16 @@ namespace Cloud__.Services
         //constructor sem býr til tengingu við gagnagrunn
         public ProjectsService() {
             _db = new ApplicationDbContext();
+        }
+
+        public void CreateProject(CreateProjectViewModel model)
+        {
+            Project newProject = new Project();
+
+            newProject.Name = model.Name;
+
+            _db.Projects.Add(newProject);
+            _db.SaveChanges();
         }
 
         public List<Project> getAllProjects(int userID) {
