@@ -1,15 +1,17 @@
-﻿@model Cloud__.Models.EditorViewModel
+@model Cloud__.Models.EditorViewModel
 
 @{
     ViewBag.Title = "Contact";
 }
 <!DOCTYPE html>
 
+
 @using (Html.BeginForm("Invite", "Home", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
     <input type="submit" value="Invite" />
 }
+
 
 <html lang="en">
 <head>
@@ -26,25 +28,79 @@
         @ViewBag.Code
     </div>
 
-@using (Html.BeginForm("SaveCode", "Home", FormMethod.Post))
+@using (Html.BeginForm("SaveCode", "Home", FormMethod.Post , new { id = "submit-form" }))
 {
     @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor"})
     <input type="submit" value="Save code" />
 }
+    <form class="theme">
+        <select id="theme-choice">
+            <optgroup label="Light">
+                <option value="1">Chrome</option>
+                <option value="2">SQL Server</option>
+                <option value="3">Github</option>
+            </optgroup>
+
+            <optgroup label="Dark">
+                <option value="4">Monokai</option>
+                <option value="5">Twilight</option>
+                <option value="6">Terminal</option>
+            </optgroup>
+</select>
+    
+        <input type="submit" class="btn" value="set"/>
+    </form>
 @section scripts
 {
     <script src="~/Scripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
     <script src="~/signalr/hubs"></script>
     <script>
-        
+
         var documentID = @ViewBag.DocumentID; //Þurfum að breyta í ID-ið í gagnagrunninum, þetta er harðkóðað
 
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
 
-    $("form").submit(function () {
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/monokai");
+                editor.getSession().setMode("ace/mode/javascript");
+
+
+
+                $(function ()
+                {
+                    $(document).on('submit','form.theme', function ()
+                    {
+                        $.ajax
+                        ({
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            method: 'POST',
+                            success: function (Data)
+                            {
+                                var selectVal = $("#theme-choice").val();
+
+                                if (selectVal == 1) {
+                                    editor.setTheme("ace/theme/chrome");
+                                } else if(selectVal == 2) {
+                                    editor.setTheme("ace/theme/sqlserver");  
+                                } else if(selectVal == 3) {
+                                    editor.setTheme("ace/theme/github");  
+                                } else if(selectVal == 4) {
+                                    editor.setTheme("ace/theme/monokai");  
+                                } else if(selectVal == 5) {
+                                    editor.setTheme("ace/theme/twilight");  
+                                } else if(selectVal == 6) {
+                                    editor.setTheme("ace/theme/terminal");  
+                                }
+                            }
+                        });
+                        return false;
+                    });
+                });
+
+   
+
+    $("submit-form").submit(function () {
         $("#hidden_editor").val(editor.getSession().getValue());
     });
 
@@ -72,6 +128,7 @@
     });
 
     </script>
+
 }
 
 
