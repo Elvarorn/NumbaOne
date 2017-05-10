@@ -3,6 +3,7 @@ using Cloud__.Models.Entities;
 using Cloud__.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -17,17 +18,24 @@ namespace Cloud__.Services
             _db = new ApplicationDbContext();
         }
 
-        public void CreateProject(CreateProjectViewModel model)
+        public void CreateProject(CreateProjectViewModel model, string username)
         {
             Project newProject = new Project();
             File newFile = new File();
 
             newFile.extension = model.Type;
             newFile.fileName = model.Name + newFile.extension;
+
             newProject.Name = model.Name;
+
+            ApplicationUser user = _db.Users.FirstOrDefault(x => x.UserName == username);
 
             _db.Files.Add(newFile);
             _db.Projects.Add(newProject);
+            _db.SaveChanges();
+
+            newProject.Users.Add(user);
+            user.Projects.Add(newProject);
             _db.SaveChanges();
         }
 

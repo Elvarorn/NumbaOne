@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-
 using Cloud__.Models;
 using Cloud__.Models.ViewModels;
 using System.Threading.Tasks;
 using Cloud__.Models.Entities;
 using Cloud__.Services;
+using Microsoft.AspNet.Identity;
 
 namespace Cloud__.Controllers
 {
@@ -37,8 +36,8 @@ namespace Cloud__.Controllers
 		[HttpPost]
         public ActionResult Create(CreateProjectViewModel model)
         {
-
-            _ps.CreateProject(model);
+            string username = User.Identity.GetUserName();
+            _ps.CreateProject(model, username);
 
             return View("Index");
         }
