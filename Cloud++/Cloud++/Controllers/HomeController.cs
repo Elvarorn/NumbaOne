@@ -46,11 +46,9 @@ namespace Cloud__.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SaveCode(EditorViewModel model)
+        public ActionResult Tutorials()
         {
-
-            return View("Home");
+            return View();
         }
     }
 }
