@@ -42,6 +42,8 @@
     @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
     <input type="submit" value="Save code" />
 }
+
+<input class="btn btn-success" onclick="Save()" value="Save" />
 @section scripts
 {
 <script src="~/Scripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -49,9 +51,23 @@
 <script src="~/signalr/hubs"></script>
 <script>
 
-    $("submit-form").submit(function () {
-        $("#hidden_editor").val(editor.getSession().getValue());
-    });
+    function Save() {
+        var data = new Object();
+        data.Content = editor.getSession().getValue();
+
+        $.ajax({
+            type: 'POST',
+            url: "/Editor/SaveCodeAjax",
+            data: data,
+            dataType: "application/json",
+            success: function(resultData) {
+                alert(resultData.message)
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
 
     var documentID = @ViewBag.DocumentID; //Þurfum að breyta í ID-ið í gagnagrunninum, þetta er harðkóðað
 

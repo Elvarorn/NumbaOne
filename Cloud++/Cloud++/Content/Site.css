@@ -42,6 +42,13 @@ textarea {
     justify-content: center;
 }
 
+.createProject {
+     position: absolute; 
+     visibility: visible; 
+     right: 125px; 
+     top: 120px; 
+}
+
 .floatleft {
     float:left; 
     width: 80%;

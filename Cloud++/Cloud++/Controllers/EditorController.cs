@@ -27,7 +27,7 @@ namespace Cloud__.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveCode(EditorViewModel model)
+        public JsonResult SaveCodeAjax(EditorViewModel model)
         {
             string data = model.Content;
             System.Diagnostics.Debug.WriteLine("----SAVE data------");
@@ -36,7 +36,7 @@ namespace Cloud__.Controllers
 
             _fs.SaveData(data);
 
-            return View();
+            return Json("Success");
         }
     }
 }
