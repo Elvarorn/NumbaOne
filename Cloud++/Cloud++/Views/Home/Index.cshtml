@@ -8,9 +8,9 @@
 <body>
     
     <div>
-        <a href="~/Home/About" class="btn">About</a>
-        <a href="~/Home/Tutorials" class="btn">Tutorials</a>
-        <a href="~/Home/Contact" class="btn">Workshop</a>
+        <a href="@Url.Action("About", "Home")" class="btn">About</a>
+        <a href="@Url.Action("Tutorials", "Home")" class="btn">Tutorials</a>
+        <a href="@Url.Action("AceEditor", "Editor")" class="btn">Workshop</a>
         @Html.Partial("_LoginPartial")
     </div>    
 
@@ -39,7 +39,7 @@
             <table>
                 <tr>
                     <td>
-                        <input type="button" value="View all projects" id="btnAll" />
+                        <input type="button" value="View all projects" class="btn btn-primary" id="btnAll" />
                     </td>
                 </tr>
                 <tr>
@@ -84,10 +84,10 @@
 
                    var trow = $('<tr></tr>');
                    trow.append('<td>'+val.ID+'</td>');
-                   trow.append('<a href="Contact"><td>' + val.Name + '</td></a>');
+                   trow.append('<a href="@Url.Action("AceEditor", "Editor")"><td>' + val.Name + '</td></a>');
                    tab.append(trow);
                });
-               $("tr:odd", tab).css('background-color', '#C4C4C4 ');
+               $("tr:odd", tab).css('background-color', '#92ccff');
                $("#UpdatePanel").html(tab);
 
            };

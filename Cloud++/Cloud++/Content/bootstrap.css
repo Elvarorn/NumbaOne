@@ -335,7 +335,7 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #312dcd;
   text-decoration: none;
 }
 
@@ -1416,7 +1416,9 @@ table {
 }
 
 th {
-  text-align: left;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .table {
