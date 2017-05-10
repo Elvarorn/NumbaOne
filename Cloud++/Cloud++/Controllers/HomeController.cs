@@ -28,7 +28,7 @@ namespace Cloud__.Controllers
 
             _ps.CreateProject(model);
 
-            return View(model);
+            return View("Index");
         }
 
         public ActionResult About()

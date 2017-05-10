@@ -20,9 +20,13 @@ namespace Cloud__.Services
         public void CreateProject(CreateProjectViewModel model)
         {
             Project newProject = new Project();
+            File newFile = new File();
 
+            newFile.extension = model.Type;
+            newFile.fileName = model.Name + newFile.extension;
             newProject.Name = model.Name;
 
+            _db.Files.Add(newFile);
             _db.Projects.Add(newProject);
             _db.SaveChanges();
         }
