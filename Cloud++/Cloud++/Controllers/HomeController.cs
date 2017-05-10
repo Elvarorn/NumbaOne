@@ -28,7 +28,7 @@ namespace Cloud__.Controllers
 
             _ps.CreateProject(model);
 
-            return View(model);
+            return View("Index");
         }
 
         public ActionResult About()
@@ -46,11 +46,9 @@ namespace Cloud__.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SaveCode(EditorViewModel model)
+        public ActionResult Tutorials()
         {
-
-            return View("Home");
+            return View();
         }
     }
 }
