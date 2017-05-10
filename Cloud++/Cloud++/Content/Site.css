@@ -23,8 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-
-
 .center
 .logo
 {
@@ -56,4 +54,21 @@ float: right;
     background-color: #00ff00;
     height: 400px;
     width: 20%;
+}
+
+
+.logohelper {
+
+   margin-left: 120px;
+}
+
+div.square {
+  border: solid 2px;
+  width: 1000px;
+  height: 300px;
+}
+
+.fkn {
+
+    margin-right: 15px;
 }

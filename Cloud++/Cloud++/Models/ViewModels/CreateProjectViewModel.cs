@@ -9,7 +9,7 @@ namespace Cloud__.Models.ViewModels
     public class CreateProjectViewModel
     {
         [Required]
-        [Display(Name = "Project name")]
+        [Display(Name = "Project name  :")]
         public string Name { get; set; }
 
         public string Type { get; set; }
