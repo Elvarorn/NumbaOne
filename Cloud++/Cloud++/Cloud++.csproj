@@ -311,6 +311,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Editor\AceEditor.cshtml" />
+    <Content Include="Views\Home\Tutorials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

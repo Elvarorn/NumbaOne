@@ -35,9 +35,71 @@
     <br>
 
     <div class="midja">
+        <div class="midja">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" value="View all projects" id="btnAll" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="UpdatePanel">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        @section Scripts{
+            <script>
+       $(document).ready(function() {
+
+           $("#btnAll").click(function() {
+
+               $.ajax({
+                   url: "@Url.Action("GetAllProjects", "Home")",
+                   data: "",
+                   type: "GET",
+                   dataType: "json",
+                   success: function(data){
+                       loadData(data);
+                   },
+
+                   error: function(){
+                       alert("Failed you twat!")
+                   }
+
+               });
+           });
+
+           function loadData(data) {
+               var tab = $('<table class="midja"></table>');
+               var thead = $('<thead></thead>');
+               thead.append('<th>ID</th>');
+               thead.append('<th>Name</th>');
+
+               tab.append(thead);
+               $.each(data, function(i, val){
+
+                   var trow = $('<tr></tr>');
+                   trow.append('<td>'+val.ID+'</td>');
+                   trow.append('<a href="Contact"><td>' + val.Name + '</td></a>');
+                   tab.append(trow);
+               });
+               $("tr:odd", tab).css('background-color', '#C4C4C4 ');
+               $("#UpdatePanel").html(tab);
+
+           };
+       });
+
+            </script>
+        }
+        <!---
         <div class="square">
             <img />
-        </div>
+           
+        </div> -->
     </div>
 
 </body>

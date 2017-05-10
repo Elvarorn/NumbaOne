@@ -22,7 +22,19 @@ namespace Cloud__.Controllers
             return View();
         }
 
-        [HttpPost]
+		public JsonResult GetAllProjects()
+		{
+			List<Project> allProjects = new List<Project>();
+
+			using (ApplicationDbContext db = new ApplicationDbContext())
+			{
+				allProjects = db.Projects.ToList();
+			}
+
+			return new JsonResult { Data = allProjects, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+		}
+
+		[HttpPost]
         public ActionResult Create(CreateProjectViewModel model)
         {
 
