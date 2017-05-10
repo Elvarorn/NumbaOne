@@ -8,9 +8,15 @@
 <body>
     
     <div>
+
         <a href="@Url.Action("About", "Home")" class="btn">About</a>
         <a href="@Url.Action("Tutorials", "Home")" class="btn">Tutorials</a>
         <a href="@Url.Action("AceEditor", "Editor")" class="btn">Workshop</a>
+
+        <a href="~/Home/About" class="btn">About</a>
+        <a href="~/Home/Tutorials" class="btn">Tutorials</a>
+        <a href="~/Editor/AceEditor" class="btn">Workshop</a>
+
         @Html.Partial("_LoginPartial")
     </div>    
 

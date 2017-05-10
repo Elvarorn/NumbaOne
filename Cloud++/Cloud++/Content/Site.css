@@ -79,3 +79,83 @@ div.square {
 
     margin-right: 15px;
 }
+
+#split-bar {
+    background-color: deepskyblue;
+    position: static;
+    height: 100%;
+    position: right;
+    float: right;
+    margin-left: 0px;
+    padding-left: 14px;
+    overflow: overlay;
+    left: 0;
+    padding-right: 0px;
+    /*cursor: col-resize; */
+    right: 0px;
+}
+
+#sidebar {
+    background-color: black;
+    position: absolute;
+    width: 200px;
+    top: 2px;
+    bottom: 0px;
+    overflow: hidden;
+    height: 800px;
+    margin: 0px 0px 0px 0px;
+    float: left;
+    
+}
+
+#editor 
+{
+    height: 800px;
+    top: -48px;
+}
+
+.body-content
+{
+    margin-left: 185px;
+}
+
+h4
+{
+    color: deepskyblue;
+    font-family:Century Gothic, sans-serif;
+    font-size: 25px;
+    padding-left: 21px;
+}
+
+#logoeditor
+{
+    margin-left: 35px;
+}
+
+#project-color
+{
+    color: deepskyblue;
+    padding-left: 21px;
+}
+
+.theme
+{
+    margin-left: 15px;
+}
+
+.btn
+{
+    padding-left: 30px;
+    margin-left: 15px;
+}
+
+.btn1
+{
+    padding-left: 30px;
+    margin-left: 15px;
+}
+
+#btn-btn-success
+{
+ margin-left: 830px;
+}

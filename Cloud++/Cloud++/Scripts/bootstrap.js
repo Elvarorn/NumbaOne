@@ -1993,6 +1993,19 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     return this
   }
 
+  {
+      $('#split-bar').mousedown(function (e) {
+          e.preventDefault();
+          $(document).mousemove(function (e) {
+              e.preventDefault();
+              var x = e.pageX - $('#sidebar').offset().left;
+              if (x > min && x < max && e.pageX < ($(window).width() - mainmin)) {
+                  $('#sidebar').css("width", x);
+                  $('#editor').css("margin-left", x);
+              }
+          })
+      });
+  }
 
   // AFFIX DATA-API
   // ==============
@@ -2012,3 +2025,6 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   })
 
 }(window.jQuery);
+
+
+
