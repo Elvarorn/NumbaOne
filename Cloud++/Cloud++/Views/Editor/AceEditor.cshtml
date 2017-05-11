@@ -130,11 +130,10 @@
     
     <br />
     <br />
-    @using (Html.BeginForm("Invite", "Home", FormMethod.Post))
-    {
-        @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
-        <input id="btn1"type="submit" value="Share project" />
-    }
+    <div>
+        @Html.Partial("Invite")
+    </div>
+
 </div>       
    
 }

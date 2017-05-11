@@ -1,0 +1,38 @@
+﻿@model Cloud__.Models.ViewModels.InviteUserViewModel
+@{
+    ViewBag.Title = "Invite";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-sm pull-right" data-target="#createModal" data-toggle="modal">Invite User</button>
+            <div class="modal fade" id="createModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Share Project</h4>
+                        </div>
+                        <div class="modal-body">
+                            @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <br>
+
+                                <div class="midja">
+                                    @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+
+                                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

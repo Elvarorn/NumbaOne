@@ -239,6 +239,7 @@
     <Compile Include="Models\Entities\Project.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\InviteUserViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateProjectViewModel.cs" />
     <Compile Include="Models\ViewModels\ProjectViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +314,7 @@
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Editor\AceEditor.cshtml" />
     <Content Include="Views\Home\Tutorials.cshtml" />
+    <Content Include="Views\Shared\Invite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

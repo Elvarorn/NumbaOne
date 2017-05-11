@@ -42,6 +42,15 @@ namespace Cloud__.Controllers
             return View("Index");
         }
 
+        [HttpPost]
+        public ActionResult Invite(InviteUserViewModel model)
+        {
+            string username = User.Identity.GetUserName();
+            _ps.InviteUser(model, username);
+
+            return View("AceEditor");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
