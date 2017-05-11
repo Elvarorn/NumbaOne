@@ -24,10 +24,22 @@ namespace Cloud__.Controllers
             _ps = new ProjectsService();
         }
 
-        public ActionResult AceEditor()
+        public ActionResult AceEditor(int id)
         {
-            ViewBag.Code = "alert('Hello World');";
-            ViewBag.DocumentID = 17; //Þurfum að breyta í ID-ið í gagnagrunninum, þetta er harðkóðað
+            if(id != null)
+            {
+                ViewBag.Code = _fs.getContent(id);
+                ViewBag.DocumentID = id;
+            }
+            else
+            {
+                ViewBag.Code = "ble";
+                ViewBag.DocumentID = 7;
+            }
+            
+
+            
+
             return View();
         }
 

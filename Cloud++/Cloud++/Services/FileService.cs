@@ -40,8 +40,6 @@ namespace Cloud__.Services
 
         public void SaveData(string content)
         {
-            System.Diagnostics.Debug.WriteLine("----DEBUG---");
-            System.Diagnostics.Debug.WriteLine(content);
             File newFile = new File();
             newFile.content = content;
             newFile.fileName = "test";
@@ -51,6 +49,16 @@ namespace Cloud__.Services
             _db.Files.Add(newFile);
             
             _db.SaveChanges();
+        }
+
+        public string getContent(int id)
+        {
+            Project currentProject = _db.Projects.FirstOrDefault(x => x.ID == id);
+
+            
+
+            File file = _db.Files.FirstOrDefault(x => x.id == id);
+            return file.content;
         }
 
     }
