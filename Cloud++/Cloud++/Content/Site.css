@@ -105,6 +105,7 @@ div.square {
     height: 800px;
     margin: 0px 0px 0px 0px;
     float: left;
+
     
 }
 
@@ -112,9 +113,10 @@ div.square {
 {
     height: 800px;
     top: -48px;
+    margin-left: 134px;
 }
 
-.body-content
+#editor-position
 {
     margin-left: 185px;
 }
@@ -158,4 +160,9 @@ h4
 #btn-btn-success
 {
  margin-left: 830px;
+}
+
+h2
+{
+    padding-left: 20px;
 }

@@ -8,5 +8,10 @@ namespace Cloud__.Models
     public class EditorViewModel
     {
         public string Content { get; set; }
+        public string FolderID { get; set; }
+        public string FileID { get;  set; }
+        public string userID { get; set; }
+       
+
     }
 }
