@@ -7,6 +7,7 @@ using Cloud__.Models;
 using Cloud__.Services;
 using System.Web.ApplicationServices;
 using Cloud__.Models.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace Cloud__.Controllers
 {
@@ -31,10 +32,18 @@ namespace Cloud__.Controllers
         }
 
         [HttpPost]
+        public ActionResult CreateFile(CreateFileViewModel model)
+        {
+            string username = User.Identity.GetUserName();
+            _fs.CreateFile(model, username);
+
+            return RedirectToAction("AceEditor", "Editor");
+        }
+
+        [HttpPost]
         public JsonResult SaveCodeAjax(EditorViewModel model)
         {
             string data = model.Content;
-
 
             _fs.SaveData(data);
 
