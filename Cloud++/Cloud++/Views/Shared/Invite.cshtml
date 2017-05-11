@@ -17,14 +17,23 @@
                         <div class="modal-body">
                             @using (Html.BeginForm("Invite", "Editor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
-                                <br>
 
                                 <div class="midja">
                                     @Html.LabelFor(m => m.Username, new { @class = "control-label" })
 
                                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-                                </div>                          
-                                  <input id="btn-success" type="submit" class="fkn btn btn-success" value="Share project" />
+                                </div>     
+                                
+                                <br>
+
+                                <div class="midja">
+                                    <p class="fkn">
+                                        <input id="btn-success" type="submit" class="fkn btn btn-success" value="Share project" />
+                                    </p>
+                                    <p class="fkn">
+                                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </p>
+                                </div>
                             }
 
   
