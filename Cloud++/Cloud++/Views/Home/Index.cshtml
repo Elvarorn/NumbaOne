@@ -1,5 +1,4 @@
-﻿@model Cloud__.Models.ViewModels.CreateProjectViewModel
-
+﻿@model IEnumerable< Cloud__.Models.Entities.Project> 
 @{
     ViewBag.Title = "Home Page";
 }
@@ -29,7 +28,21 @@
          <h3>My Projects</h3>
     </div>
     <br>
+    <table class="midja">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+        </tr>
+        }
+    </table>
 
+    @*
     <div class="createProject">
          @Html.Partial("Create")
     </div>
@@ -69,14 +82,13 @@
                    },
 
                    error: function(){
-                       alert("Failed you twat!")
+                       alert("Failed you twat!");
                    }
-
                });
            });
 
            function loadData(data) {
-               var tab = $('<table class="midja"></table>');
+               var tab = $('<table class="saelir"></table>');
                var thead = $('<thead></thead>');
                thead.append('<th>ID</th>');
                thead.append('<th>Name</th>');
@@ -86,7 +98,7 @@
 
                    var trow = $('<tr></tr>');
                    trow.append('<td>'+val.ID+'</td>');
-                   trow.append('<a href="@Url.Action("AceEditor", "Editor")"><td>' + val.Name + '</td></a>');
+                   trow.append('<td>'+val.Name+'</td>');
                    tab.append(trow);
                });
                $("tr:odd", tab).css('background-color', '#92ccff');
@@ -102,7 +114,7 @@
             <img />
            
         </div> -->
-    </div>
+    </div>*@
 
 </body>
 

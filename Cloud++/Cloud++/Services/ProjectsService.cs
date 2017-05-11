@@ -4,14 +4,17 @@ using Cloud__.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace Cloud__.Services
 {
-    public class ProjectsService
+    public class ProjectsService 
     {
         private ApplicationDbContext _db;
+
+        public DbSet<Project> Projects { get; set; }
 
         //constructor sem býr til tengingu við gagnagrunn
         public ProjectsService() {

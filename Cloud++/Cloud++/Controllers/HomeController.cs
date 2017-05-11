@@ -18,7 +18,9 @@ namespace Cloud__.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            return View(db.Projects.ToList());
         }
 
 		public JsonResult GetAllProjects()
