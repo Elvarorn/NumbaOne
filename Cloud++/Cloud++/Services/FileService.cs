@@ -38,15 +38,10 @@ namespace Cloud__.Services
             _db.SaveChanges();
         }
 
-        public void SaveData(string content)
+        public void SaveData(string content, int fileId)
         {
-            File newFile = new File();
-            newFile.content = content;
-            newFile.fileName = "test";
-            newFile.extension = "css";
-            newFile.folderID = 1;
-
-            _db.Files.Add(newFile);
+            File thisFile = _db.Files.FirstOrDefault(x => x.id == fileId);
+            thisFile.content = content;
             
             _db.SaveChanges();
         }

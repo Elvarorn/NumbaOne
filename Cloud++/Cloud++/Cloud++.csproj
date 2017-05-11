@@ -211,31 +211,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\CodeHub.cs" />
-    <Compile Include="Migrations\201705041700120_init.cs" />
-    <Compile Include="Migrations\201705041700120_init.Designer.cs">
-      <DependentUpon>201705041700120_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705051352069_UserName.cs" />
-    <Compile Include="Migrations\201705051352069_UserName.Designer.cs">
-      <DependentUpon>201705051352069_UserName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705061713245_filesadded.cs" />
-    <Compile Include="Migrations\201705061713245_filesadded.Designer.cs">
-      <DependentUpon>201705061713245_filesadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705061716455_foldersadded.cs" />
-    <Compile Include="Migrations\201705061716455_foldersadded.Designer.cs">
-      <DependentUpon>201705061716455_foldersadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705082032322_projectsharedtable.cs" />
-    <Compile Include="Migrations\201705082032322_projectsharedtable.Designer.cs">
-      <DependentUpon>201705082032322_projectsharedtable.cs</DependentUpon>
+    <Compile Include="Migrations\201705111836247_finaleinit.cs" />
+    <Compile Include="Migrations\201705111836247_finaleinit.Designer.cs">
+      <DependentUpon>201705111836247_finaleinit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EditorViewModel.cs" />
     <Compile Include="Models\Entities\File.cs" />
-    <Compile Include="Models\Entities\Folder.cs" />
     <Compile Include="Models\Entities\Project.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -330,20 +313,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705041700120_init.resx">
-      <DependentUpon>201705041700120_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705051352069_UserName.resx">
-      <DependentUpon>201705051352069_UserName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705061713245_filesadded.resx">
-      <DependentUpon>201705061713245_filesadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705061716455_foldersadded.resx">
-      <DependentUpon>201705061716455_foldersadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705082032322_projectsharedtable.resx">
-      <DependentUpon>201705082032322_projectsharedtable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705111836247_finaleinit.resx">
+      <DependentUpon>201705111836247_finaleinit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

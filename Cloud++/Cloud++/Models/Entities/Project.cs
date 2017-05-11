@@ -22,7 +22,7 @@ namespace Cloud__.Models.Entities
         public string Name { get; set; }
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
-
+        public virtual ICollection<File> Files { get; set; }
 
     }
 }

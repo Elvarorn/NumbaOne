@@ -37,6 +37,7 @@ namespace Cloud__.Services
             _db.Projects.Add(newProject);
             _db.SaveChanges();
 
+            newProject.Files.Add(newFile);
             newProject.Users.Add(user);
             user.Projects.Add(newProject);
             _db.SaveChanges();

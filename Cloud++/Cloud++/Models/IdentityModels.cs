@@ -31,7 +31,6 @@ namespace Cloud__.Models
     {
         public IDbSet<Project> Projects { get; set; }
         public IDbSet<File> Files { get; set; }
-        public IDbSet<Folder> Folders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
