@@ -56,6 +56,20 @@ namespace Cloud__.Services
             return project;
         }
 
+        public void Invite(string username, int projectid)
+        {
+            
+            Project thisProject = _db.Projects.FirstOrDefault(x => x.ID == projectid);
+            ApplicationUser thisUser = _db.Users.FirstOrDefault(x => x.UserName == username);
+
+            if (thisProject != null && thisUser != null)
+            {
+                thisProject.Users.Add(thisUser);
+                thisUser.Projects.Add(thisProject);
+                _db.SaveChanges();
+            }
+        }
+
 
     }
 }

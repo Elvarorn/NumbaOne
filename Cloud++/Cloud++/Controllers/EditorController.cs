@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Cloud__.Models;
 using Cloud__.Services;
 using System.Web.ApplicationServices;
+using Cloud__.Models.ViewModels;
 
 namespace Cloud__.Controllers
 {
@@ -13,10 +14,13 @@ namespace Cloud__.Controllers
     {
         // GET: Editor
         private FileService _fs;
+        private ProjectsService _ps;
+
 
         public EditorController()
         {
             _fs = new FileService();
+            _ps = new ProjectsService();
         }
 
         public ActionResult AceEditor()
@@ -30,13 +34,21 @@ namespace Cloud__.Controllers
         public JsonResult SaveCodeAjax(EditorViewModel model)
         {
             string data = model.Content;
-            System.Diagnostics.Debug.WriteLine("----SAVE data------");
-            System.Diagnostics.Debug.WriteLine(model.Content);
-            System.Diagnostics.Debug.WriteLine(data);
+
 
             _fs.SaveData(data);
 
             return Json("Success");
         }
+
+        [HttpPost]
+        public ActionResult Invite(InviteUserViewModel model)
+        {
+            string username = model.Username;
+            
+            _ps.Invite(username, 3);
+            return RedirectToAction("AceEditor", "Editor");
+        }
+
     }
 }

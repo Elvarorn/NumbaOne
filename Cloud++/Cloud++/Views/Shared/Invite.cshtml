@@ -15,7 +15,7 @@
                             <h4 class="modal-title">Share Project</h4>
                         </div>
                         <div class="modal-body">
-                            @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            @using (Html.BeginForm("Invite", "Editor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
                                 <br>
 
@@ -23,8 +23,11 @@
                                     @Html.LabelFor(m => m.Username, new { @class = "control-label" })
 
                                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-                                </div>
+                                </div>                          
+                                  <input id="btn-success" type="submit" class="fkn btn btn-success" value="Share project" />
                             }
+
+  
                         </div>
                     </div>
                 </div>
