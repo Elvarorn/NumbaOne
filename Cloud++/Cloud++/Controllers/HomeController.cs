@@ -41,7 +41,7 @@ namespace Cloud__.Controllers
             string username = User.Identity.GetUserName();
             _ps.CreateProject(model, username);
 
-            return View("Index");
+            return RedirectToAction("AceEditor", "Editor");
         }
 
         [HttpPost]
