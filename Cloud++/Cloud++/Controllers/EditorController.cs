@@ -26,6 +26,7 @@ namespace Cloud__.Controllers
 
         public ActionResult AceEditor(int id)
         {
+            TempData["id"] = id;
             if(id != null)
             {
                 ViewBag.Code = _fs.getContent(id);
@@ -66,10 +67,9 @@ namespace Cloud__.Controllers
         [HttpPost]
         public ActionResult Invite(InviteUserViewModel model)
         {
-            string username = model.Username;
-            
-            _ps.Invite(username, 3);
-            return RedirectToAction("AceEditor", "Editor");
+            int theID = (int)TempData["id"];
+            _ps.Invite(model.Username, theID);
+            return View("AceEditor");
         }
 
     }
