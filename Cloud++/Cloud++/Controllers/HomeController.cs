@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Cloud__.Models.Entities;
 using Cloud__.Services;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 
 namespace Cloud__.Controllers
 {
@@ -20,7 +21,31 @@ namespace Cloud__.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            return View(db.Projects.ToList());
+            string userid = User.Identity.GetUserId();
+
+            ApplicationUser currentUser = db.Users.Include("Projects").FirstOrDefault(x => x.Id == userid);
+
+            List<Project> myProjects = new List<Project>();
+            var userProjects = currentUser.Projects.ToList<Project>();
+
+            foreach (Project p in userProjects)
+            {
+                if (db.Entry(p).State == System.Data.Entity.EntityState.Detached)
+                {
+                    db.Projects.Attach(p);
+                }
+
+                currentUser.Projects.Add(p);
+                myProjects.Add(p);
+            }
+
+            //foreach (var projectss in currentUser.Projects)
+            //{
+            //    myProjects.Add(projectss);
+            //}
+
+
+            return View(myProjects);
         }
 
 		public JsonResult GetAllProjects()
