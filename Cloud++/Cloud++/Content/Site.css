@@ -1,4 +1,4 @@
-﻿body {
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -81,7 +81,7 @@ div.square {
 }
 
 #split-bar {
-    background-color: deepskyblue;
+    background-color: #5489da;
     position: static;
     height: 100%;
     float: right;
@@ -93,23 +93,24 @@ div.square {
 }
 
 #sidebar {
+
     background-color: white;
     position: absolute;
-    width: 300px;
+    width: 250px;
     top: 0px;
     bottom: 0px;
     overflow: hidden;
-    height: 930px;
+    height: 660px;
     margin: 0px 0px 0px 0px;
     float: left;
 }
 
 #editor 
 {
-    height: 700px;
+    height: 448px;
     top: -50px;
-    margin-left: 25px;
-    margin-right: -274px;
+    margin-left: 175px;
+    margin-right: -72px;
 }
 
 #editor-position
@@ -119,7 +120,7 @@ div.square {
 
 h4
 {
-    color: deepskyblue;
+    color: #5489da;
     font-family:Century Gothic, sans-serif;
     font-size: 25px;
     padding-left: 21px;
@@ -132,7 +133,7 @@ h4
 
 #project-color
 {
-    color: deepskyblue;
+    color: #5489da;
     padding-left: 21px;
 }
 
@@ -158,11 +159,13 @@ h2
 }
 
 .stillachat{
+
     position: absolute;
     bottom: 0px;
     left: 0;
     background-color: white;
-    border-top: 2px solid black;
+    border-top: 13px solid #5489da;
+    border-right: 13px solid #5489da;
 }
 
 #liggjandi {
@@ -180,7 +183,7 @@ h2
 
 #split-liggjandi {
 
-    background-color: deepskyblue;
+    background-color: #5489da;
     position: static;
     height: 6%;
     float: right;
@@ -191,10 +194,51 @@ h2
     right: 0px;
 }
 
-#moveSave{
+#moveSave {
 
     position: absolute;
-    right: 1000px;
-    top: 110px;
+    right: 430px;
+    top: 150px;
+}
 
+#moveInv {
+
+    position: absolute;
+    right: 170px;
+    top: 150px;
+}
+
+#moveSaveImg {
+
+    position: absolute;
+    right: 500px;
+    top: 60px;
+}
+
+#moveAddFile {
+
+    position: absolute;
+    right: 1050px;
+    top: 220px;
+}
+
+#moveAddFileImg {
+
+    position: absolute;
+    right: 196px;
+    top: 67px;
+}
+
+#moveTheme {
+
+    position: absolute;
+    right: 760px;
+    top: 90px;
+}
+
+#themeTextBlue
+{
+    font-weight: bold;
+    color: #5489da;
+    padding-left: 21px;
 }
