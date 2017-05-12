@@ -5,6 +5,7 @@ using System.Web;
 using Cloud__.Models;
 using Cloud__.Models.Entities;
 using Cloud__.Models.ViewModels;
+using System.Data.Entity;
 
 namespace Cloud__.Services
 {
@@ -36,6 +37,25 @@ namespace Cloud__.Services
             newProject.Users.Add(user);
             user.Projects.Add(newProject);
             _db.SaveChanges();
+        }
+
+        public List<File> getFiles(int id)
+        {
+            int tempId = id;
+            Project thisProject = _db.Projects.Include("Files").FirstOrDefault(x => x.ID == tempId);
+            List<File> myFiles = new List<File>();
+            var projectFiles = thisProject.Files.ToList<File>();
+            foreach (File p in projectFiles)
+            {
+                if (_db.Entry(p).State == System.Data.Entity.EntityState.Detached)
+                {
+                    _db.Files.Attach(p);
+                }
+                thisProject.Files.Add(p);
+                myFiles.Add(p);
+            }
+
+            return myFiles;
         }
 
         public void SaveData(string content, int pID)

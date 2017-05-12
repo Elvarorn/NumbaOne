@@ -8,6 +8,8 @@ using Cloud__.Services;
 using System.Web.ApplicationServices;
 using Cloud__.Models.ViewModels;
 using Microsoft.AspNet.Identity;
+using Cloud__.Models.Entities;
+using System.Data.Entity;
 
 namespace Cloud__.Controllers
 {
@@ -24,24 +26,40 @@ namespace Cloud__.Controllers
             _ps = new ProjectsService();
         }
 
+        public ActionResult ListFiles()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            string userid = User.Identity.GetUserId();
+            int tempId = (int)TempData["id"];
+            Project thisProject = db.Projects.Include("Files").FirstOrDefault(x => x.ID == tempId);
+            List<File> myFiles = new List<File>();
+            var projectFiles = thisProject.Files.ToList<File>();
+            foreach (File p in projectFiles)
+            {
+                if (db.Entry(p).State == System.Data.Entity.EntityState.Detached)
+                {
+                    db.Files.Attach(p);
+                }
+                thisProject.Files.Add(p);
+                myFiles.Add(p);
+            }
+            ViewBag.MyList = myFiles;
+            return View(myFiles);
+        }
+
         public ActionResult AceEditor(int id)
         {
+            EditorViewModel model = new Models.EditorViewModel();
+
+            List<File> files = _fs.getFiles(id);
+            model.Files = files;
+
             TempData["id"] = id;
-            if(id != null)
-            {
-                ViewBag.Code = _fs.getContent(id);
-                ViewBag.DocumentID = id;
-            }
-            else
-            {
-                ViewBag.Code = "ble";
-                ViewBag.DocumentID = 7;
-            }
             
+            ViewBag.Code = _fs.getContent(id);
+            ViewBag.DocumentID = id;            
 
-            
-
-            return View();
+            return View(model);
         }
 
         [HttpPost]

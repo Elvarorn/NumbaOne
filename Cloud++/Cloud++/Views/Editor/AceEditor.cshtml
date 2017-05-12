@@ -127,11 +127,10 @@
     <h4> Menu bar </h4>
 
     <div id="project-color">
-        <p>IntVector</p>
-        <p>Hashmap</p>
-        <p>Reverselist</p>
-        <p>BinaryTree</p>
-
+        @foreach(var files in Model.Files)
+        {
+            <p>@files.fileName </p>
+        }
         <br />
         <br />
     </div>
