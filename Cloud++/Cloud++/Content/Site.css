@@ -113,10 +113,11 @@ div.square {
 #editor 
 {
 
-    height: 45em;
+    height: 39.7em;
     top: -4.2em;
     margin-left: 15.6%;
     margin-right: -6.3%;
+
 }
 
 #geymaeditor {
@@ -125,12 +126,6 @@ div.square {
     top: -4.2em;
     margin-left: 15.3%;
     margin-right: -6.3%;
-}
-
-
-#editor-position
-{
-    xmargin-left: 185px;
 }
 
 h4
@@ -181,17 +176,19 @@ h2
     height: 45%;
     margin-bottom: 30%;
     background-color: white;
-    border-top: 13px solid #5489da;
-    border-right: 13px solid #5489da;
+    border-top: 1em solid #5489da;
+    border-right: 1em solid #5489da;
 }
 
 #liggjandi {
 
   background-color: white;
-  width: 80.6%;
+  width: 74em;
   position: absolute;
-  top:485px;
-  right: 0px;
+  top: 34em;
+  right: 0em;
+  height: 14.4em;
+  margin-left: 100px;
 }
 
 #geyma4 {
@@ -238,8 +235,8 @@ h2
 
     background-color: #5489da;
     position: static;
-    height: 50%;
-    width: 50%;
+    height: 1em;
+    width: 74em;
 }
 
 #geyma3 {
@@ -258,50 +255,50 @@ h2
 #moveSave {
 
     position: absolute;
-    right: 430px;
-    top: 150px;
+    right: 31em;
+    top: 11em;
 }
 
 #moveInv {
 
     position: absolute;
-    right: 170px;
-    top: 150px;
+    right: 12em;
+    top: 11em;
 }
 
 #moveSaveImg {
 
     position: absolute;
-    right: 500px;
-    top: 60px;
+    right: 36em;
+    top: 4em;
 }
 
 #moveAddFile {
 
     position: absolute;
-    right: 9%;
-    top: 32%;
+    right: 1em;
+    top: 15em;
 }
 
 #moveAddFileImg {
 
     position: absolute;
-    right: 196px;
-    top: 67px;
+    right: 14em;
+    top: 4.4em;
 }
 
 #moveTheme {
 
     position: absolute;
-    right: 760px;
-    top: 90px;
+    right: 55em;
+    top: 5.5em;
 }
 
 #themeTextBlue
 {
     font-weight: bold;
     color: #5489da;
-    padding-left: 21px;
+    padding-left: 1em;
 }
 
 #stillingar {
@@ -309,4 +306,38 @@ h2
     min-width: 960px; 
     width: 1285px; 
     margin: 0 auto;
+}
+
+th 
+{
+    height: 3em;
+    background-color: #428bca;
+    color: white;
+}
+
+table, th, td 
+{
+   
+border: 2px solid #428bca; 
+width: 50em;
+
+}
+
+#tableMix
+{
+     width: 100%;
+    border-collapse: collapse;
+    text-align:center;
+    
+}
+
+tr:hover 
+{
+    background-color: #f5f5f5;
+}
+
+td
+{
+    height: 3em;
+    color: #428bca;
 }
