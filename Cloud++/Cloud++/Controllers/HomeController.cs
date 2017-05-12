@@ -27,12 +27,6 @@ namespace Cloud__.Controllers
 
             model.Projects = myProjects;
 
-            //foreach (var projectss in currentUser.Projects)
-            //{
-            //    myProjects.Add(projectss);
-            //}
-
-
             return View(model);
         }
 

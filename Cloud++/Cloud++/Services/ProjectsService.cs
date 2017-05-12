@@ -87,7 +87,7 @@ namespace Cloud__.Services
         }
 
         public Project getProjectByID(int projectID) {
-            // TODO: make viewmodel and finish this function
+
             var project =_db.Projects.SingleOrDefault(x => x.ID == projectID);
             return project;
         }
