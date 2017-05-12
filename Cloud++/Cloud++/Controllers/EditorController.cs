@@ -57,9 +57,7 @@ namespace Cloud__.Controllers
         public JsonResult SaveCodeAjax(EditorViewModel model)
         {
             string data = model.Content;
-            int fileId = model.FileID;
-            
-            _fs.SaveData(data, fileId);
+            _fs.SaveData(data, (int)TempData["id"]);
 
             return Json("Success");
         }
