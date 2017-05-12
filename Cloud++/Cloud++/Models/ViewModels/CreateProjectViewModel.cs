@@ -12,7 +12,9 @@ namespace Cloud__.Models.ViewModels
         [Display(Name = "Project name  :")]
         public string Name { get; set; }
 
-        public string Type { get; set; }
+		[Required]
+		[Display(Name = "Extension  :")]
+		public string Type { get; set; }
         public int projectID { get; set; }
     }
 }
