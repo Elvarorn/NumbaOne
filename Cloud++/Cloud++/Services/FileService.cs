@@ -38,9 +38,9 @@ namespace Cloud__.Services
             _db.SaveChanges();
         }
 
-        public void SaveData(string content, int fileId)
+        public void SaveData(string content, int pID)
         {
-            File thisFile = _db.Files.FirstOrDefault(x => x.id == fileId);
+            File thisFile = _db.Files.FirstOrDefault(x => x.id == pID);
             thisFile.content = content;
             
             _db.SaveChanges();
