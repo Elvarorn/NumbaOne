@@ -85,37 +85,52 @@ div.square {
     position: static;
     height: 100%;
     float: right;
-    margin-left: 0px;
     padding-left: 14px;
-    left: 0;
-    padding-right: 0px;
-    right: 0px;
 }
 
 #sidebar {
 
-    background-color: white;
-    position: absolute;
-    width: 250px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+#geyma {
+
+    background-color: green;
+    xposition: absolute;
+    width: 19.4%;
     top: 0px;
     bottom: 0px;
     overflow: hidden;
-    height: 660px;
+    height: 100%;
     margin: 0px 0px 0px 0px;
     float: left;
 }
 
 #editor 
 {
-    height: 448px;
-    top: -50px;
-    margin-left: 175px;
-    margin-right: -72px;
+
+    height: 45em;
+    top: -4.2em;
+    margin-left: 15.6%;
+    margin-right: -6.3%;
 }
+
+#geymaeditor {
+
+    height: 37.3em;
+    top: -4.2em;
+    margin-left: 15.3%;
+    margin-right: -6.3%;
+}
+
 
 #editor-position
 {
-    margin-left: 185px;
+    xmargin-left: 185px;
 }
 
 h4
@@ -150,7 +165,7 @@ h4
 
 #btn-btn-success
 {
- margin-left: 830px;
+    margin-left: 830px;
 }
 
 h2
@@ -161,14 +176,41 @@ h2
 .stillachat{
 
     position: absolute;
-    bottom: 0px;
+    bottom: 5%;
     left: 0;
+    height: 45%;
+    margin-bottom: 30%;
     background-color: white;
     border-top: 13px solid #5489da;
     border-right: 13px solid #5489da;
 }
 
 #liggjandi {
+
+  background-color: white;
+  width: 80.6%;
+  position: absolute;
+  top:485px;
+  right: 0px;
+}
+
+#geyma4 {
+
+  width: 80.6%;
+  position: absolute;
+  top: 70%;
+  bottom: 0px;
+  left: 19.4%;
+  background-color: deeppink;
+
+  width: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+#geyma2 {
 
     background-color: white;
     position: absolute;
@@ -179,10 +221,8 @@ h2
     height: 230px;
     margin: 0px 0px 0px 0px;
     float: left;
-}
 
-#split-liggjandi {
-
+    
     background-color: #5489da;
     position: static;
     height: 6%;
@@ -192,6 +232,27 @@ h2
     left: 0;
     padding-right: 0px;
     right: 0px;
+}
+
+#split-liggjandi {
+
+    background-color: #5489da;
+    position: static;
+    height: 50%;
+    width: 50%;
+}
+
+#geyma3 {
+
+    background-color: #5489da;
+    position: static;
+    height: 6%;
+
+    background-color: #5489da;
+    position: static;
+    height: 100%;
+    float: right;
+    padding-left: 14px;
 }
 
 #moveSave {
@@ -218,8 +279,8 @@ h2
 #moveAddFile {
 
     position: absolute;
-    right: 1050px;
-    top: 220px;
+    right: 9%;
+    top: 32%;
 }
 
 #moveAddFileImg {
@@ -241,4 +302,11 @@ h2
     font-weight: bold;
     color: #5489da;
     padding-left: 21px;
+}
+
+#stillingar {
+
+    min-width: 960px; 
+    width: 1285px; 
+    margin: 0 auto;
 }
