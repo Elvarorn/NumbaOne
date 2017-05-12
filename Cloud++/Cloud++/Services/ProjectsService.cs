@@ -23,8 +23,24 @@ namespace Cloud__.Services
 
         public void CreateProject(CreateProjectViewModel model, string username)
         {
+            if(model.Name == null || model.Type == null)
+            {
+                return;
+            }
+
             Project newProject = new Project();
             File newFile = new File();
+
+            List<Project> existingProjects = _db.Projects.ToList();
+
+            foreach (var file in existingProjects)
+            {
+                if (file.Name == model.Name)
+                {
+                    return;
+                }
+            }
+
 
             newFile.extension = model.Type;
             newFile.fileName = model.Name + newFile.extension;

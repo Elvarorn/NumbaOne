@@ -20,8 +20,23 @@ namespace Cloud__.Services
 
         public void CreateFile(CreateFileViewModel model, int projectid)
         {
+            if(model.FileName == null || model.FileType == null)
+            {
+                return;
+            }
+
             Project thisProject = _db.Projects.FirstOrDefault(x => x.ID == projectid);
             File newFile = new File();
+
+            List<File> existingFiles = thisProject.Files.ToList();
+
+            foreach(var file in existingFiles)
+            {
+                if(file.fileName == model.FileName + model.FileType)
+                {
+                    return;
+                }
+            }
             
             newFile.extension = model.FileType;
             newFile.fileName = model.FileName + model.FileType;
