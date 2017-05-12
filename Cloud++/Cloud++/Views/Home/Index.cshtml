@@ -1,4 +1,4 @@
-@model IEnumerable< Cloud__.Models.Entities.Project> 
+@model Cloud__.Models.ViewModels.ProjectViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -41,10 +41,10 @@
         <tr>
             <th>Name</th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Projects)
         {
             <tr>
-                <td><a class="midja" href="@Url.Action("AceEditor", "Editor", new {id= @item.ID })">@item.Name</a></td>
+                <td><a class="midja" href="@Url.Action("AceEditor", "Editor", new {id= @item.Files.FirstOrDefault().id })">@item.Name </a></td>
             </tr>
         }
     </table>

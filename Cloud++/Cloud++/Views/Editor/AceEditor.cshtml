@@ -28,7 +28,7 @@
                         
                     },
                     error: function (data) {
-                        alert("Error");
+                        
                     }
                 });
             }
@@ -129,7 +129,7 @@
     <div id="project-color">
         @foreach(var files in Model.Files)
         {
-            <p>@files.fileName </p>
+            <p><a href="@Url.Action("AceEditor", "Editor", new {id= files.id })">@files.fileName </a> </p>
         }
         <br />
         <br />

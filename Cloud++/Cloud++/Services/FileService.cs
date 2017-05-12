@@ -18,24 +18,20 @@ namespace Cloud__.Services
             _db = new ApplicationDbContext();
         }
 
-        public void CreateFile(CreateFileViewModel model, string username)
+        public void CreateFile(CreateFileViewModel model, int projectid)
         {
-            Project newProject = new Project();
+            Project thisProject = _db.Projects.FirstOrDefault(x => x.ID == projectid);
             File newFile = new File();
-
+            
             newFile.extension = model.FileType;
             newFile.fileName = model.FileName + model.FileType;
-
-            newProject.Name = newProject.Name;
-
-            ApplicationUser user = _db.Users.FirstOrDefault(x => x.UserName == username);
+            newFile.content = "default robbatext";
+            newFile.projectId = projectid;
 
             _db.Files.Add(newFile);
-            _db.Projects.Add(newProject);
             _db.SaveChanges();
 
-            newProject.Users.Add(user);
-            user.Projects.Add(newProject);
+            thisProject.Files.Add(newFile);
             _db.SaveChanges();
         }
 
@@ -68,11 +64,8 @@ namespace Cloud__.Services
 
         public string getContent(int id)
         {
-            Project currentProject = _db.Projects.FirstOrDefault(x => x.ID == id);
-
-            
-
             File file = _db.Files.FirstOrDefault(x => x.id == id);
+
             return file.content;
         }
 

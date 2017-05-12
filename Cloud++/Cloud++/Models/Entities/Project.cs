@@ -14,9 +14,10 @@ namespace Cloud__.Models.Entities
         public Project()
         {
             Users = new List<ApplicationUser>();
+            Files = new List<File>();
         }
 
-        
+
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }

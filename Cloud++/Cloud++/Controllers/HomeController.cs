@@ -19,25 +19,13 @@ namespace Cloud__.Controllers
 
         public ActionResult Index()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
+            ProjectViewModel model = new ProjectViewModel();
 
             string userid = User.Identity.GetUserId();
 
-            ApplicationUser currentUser = db.Users.Include("Projects").FirstOrDefault(x => x.Id == userid);
+            List<Project> myProjects = _ps.getAllProjects(userid);
 
-            List<Project> myProjects = new List<Project>();
-            var userProjects = currentUser.Projects.ToList<Project>();
-
-            foreach (Project p in userProjects)
-            {
-                if (db.Entry(p).State == System.Data.Entity.EntityState.Detached)
-                {
-                    db.Projects.Attach(p);
-                }
-
-                currentUser.Projects.Add(p);
-                myProjects.Add(p);
-            }
+            model.Projects = myProjects;
 
             //foreach (var projectss in currentUser.Projects)
             //{
@@ -45,7 +33,7 @@ namespace Cloud__.Controllers
             //}
 
 
-            return View(myProjects);
+            return View(model);
         }
 
 		public JsonResult GetAllProjects()

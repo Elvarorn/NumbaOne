@@ -28,6 +28,7 @@ namespace Cloud__.Services
 
             newFile.extension = model.Type;
             newFile.fileName = model.Name + newFile.extension;
+            newFile.content = "default text by robbi";
 
             newProject.Name = model.Name;
 
@@ -43,10 +44,25 @@ namespace Cloud__.Services
             _db.SaveChanges();
         }
 
-        public List<Project> getAllProjects(int userID) {
-            // TODO: make viewmodel for this and use _db to make function work
-            
-            return null;
+        public List<Project> getAllProjects(string userid) {
+
+            ApplicationUser currentUser = _db.Users.Include("Projects").FirstOrDefault(x => x.Id == userid);
+
+            List<Project> myProjects = new List<Project>();
+            var userProjects = currentUser.Projects.ToList<Project>();
+
+            foreach (Project p in userProjects)
+            {
+                if (_db.Entry(p).State == System.Data.Entity.EntityState.Detached)
+                {
+                    _db.Projects.Attach(p);
+                }
+
+                currentUser.Projects.Add(p);
+                myProjects.Add(p);
+            }
+
+            return myProjects;
         }
 
         internal void InviteUser(InviteUserViewModel model, string username)
@@ -58,6 +74,15 @@ namespace Cloud__.Services
             // TODO: make viewmodel and finish this function
             var project =_db.Projects.SingleOrDefault(x => x.ID == projectID);
             return project;
+        }
+
+        public int getProjectID(int fileID)
+        {
+            File thisFile = _db.Files.FirstOrDefault(x => x.id == fileID);
+
+            int projectid = thisFile.projectId;
+
+            return projectid;
         }
 
         public void Invite(string username, int projectid)

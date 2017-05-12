@@ -49,14 +49,18 @@ namespace Cloud__.Controllers
 
         public ActionResult AceEditor(int id)
         {
-            EditorViewModel model = new Models.EditorViewModel();
+            EditorViewModel model = new EditorViewModel();
 
-            List<File> files = _fs.getFiles(id);
+            model.FileID = id;
+            model.ProjectID = _ps.getProjectID(id);
+
+            List<File> files = _fs.getFiles(model.ProjectID);
             model.Files = files;
 
-            TempData["id"] = id;
+            TempData["id"] = model.ProjectID;
+            TempData["fileid"] = model.FileID;
             
-            ViewBag.Code = _fs.getContent(id);
+            ViewBag.Code = _fs.getContent(model.FileID);
             ViewBag.DocumentID = id;            
 
             return View(model);
@@ -65,17 +69,19 @@ namespace Cloud__.Controllers
         [HttpPost]
         public ActionResult CreateFile(CreateFileViewModel model)
         {
-            string username = User.Identity.GetUserName();
-            _fs.CreateFile(model, username);
+            int projectid = (int)TempData["id"];
+            ViewBag.DocumentID = TempData["fileid"];
+            _fs.CreateFile(model, projectid);
 
-            return RedirectToAction("AceEditor", "Editor");
+            return RedirectToAction("AceEditor", "Editor", new { id = TempData["fileid"] });
+       
         }
 
         [HttpPost]
         public JsonResult SaveCodeAjax(EditorViewModel model)
         {
             string data = model.Content;
-            _fs.SaveData(data, (int)TempData["id"]);
+            _fs.SaveData(data, (int)TempData["fileid"]);
 
             return Json("Success");
         }
@@ -85,7 +91,7 @@ namespace Cloud__.Controllers
         {
             int theID = (int)TempData["id"];
             _ps.Invite(model.Username, theID);
-            return View("AceEditor");
+            return RedirectToAction("AceEditor", "Editor", new { id = TempData["fileid"] });
         }
 
     }
