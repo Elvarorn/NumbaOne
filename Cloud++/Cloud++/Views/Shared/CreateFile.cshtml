@@ -17,15 +17,15 @@
                             @using (Html.BeginForm("CreateFile", "Editor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
                                 <div class="midja">
-                                    @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+                                    @Html.LabelFor(m => m.FileName, new { @class = "control-label" })
 
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                    @Html.TextBoxFor(m => m.FileName, new { @class = "form-control" })
                                 </div>
                                 <br />
                                 <div class="midja">
-                                    @Html.LabelFor(m => m.Type, new { @class = "control-label" })
+                                    @Html.LabelFor(m => m.FileType, new { @class = "control-label" })
 
-                                    @Html.TextBoxFor(m => m.Type, new { @class = "form-control" })
+                                    @Html.TextBoxFor(m => m.FileType, new { @class = "form-control" })
                                 </div>
 
                                 <br>
