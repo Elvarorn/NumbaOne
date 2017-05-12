@@ -118,6 +118,8 @@
 
         </script>
 
+<body>
+<div id="stillingar">
 
 <div id="sidebar">
     <div id="split-bar"></div>
@@ -132,7 +134,6 @@
 
         <br />
         <br />
-
     </div>
 
 
@@ -142,13 +143,29 @@
     <br />
     <br />
 
-    <div class="midja">
-        @*@Html.Partial("CreateFile", new new Cloud__.Models.ViewModels.CreateFileViewModel())*@
+    <div id="moveAddFile">
+        @Html.Partial("CreateFile", new Cloud__.Models.ViewModels.CreateFileViewModel())
+    </div>
 
+    <br />
+    <br />
+
+    <div class="stillachat">
+        <div style="height: 400px; width: 236px; display: -moz-box; -moz-box-orient: vertical">
+            <div style="overflow: auto; min-height: 1px; max-height: 400px;">
+
+                <h4>Chat</h4>
+                <div class="container">
+                    <input type="text" id="message" />
+                    <input type="button" id="sendmessage" class="btn btn-primary" value="Send" />
+                    <input type="hidden" id="displayname" value="@User.Identity.Name" />
+                    <ul id="discussion"></ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>  
-
 
     <div id="liggjandi">
     <div id="split-liggjandi"></div>
@@ -186,24 +203,6 @@
             </form>
         </div>
     </div>
-
-    <div id="moveAddFile">
-        @Html.Partial("CreateFile", new Cloud__.Models.ViewModels.CreateFileViewModel())
     </div>
-
-    <div class="stillachat">
-        <div style="height: 400px; width: 236px; display: -moz-box; -moz-box-orient: vertical" id="stillachat">
-            <div style="overflow: auto; min-height: 1px; max-height: 400px;">
-
-                <h4>Chat</h4>
-                <div class="container">
-                    <input type="text" id="message" />
-                    <input type="button" id="sendmessage" class="btn btn-primary" value="Send" />
-                    <input type="hidden" id="displayname" value="@User.Identity.Name" />
-                    <ul id="discussion"></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
+</body>
     }
