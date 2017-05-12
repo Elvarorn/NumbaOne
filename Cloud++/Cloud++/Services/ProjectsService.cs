@@ -44,7 +44,7 @@ namespace Cloud__.Services
 
             newFile.extension = model.Type;
             newFile.fileName = model.Name + newFile.extension;
-            newFile.content = "default text by robbi";
+            newFile.content = "//ADD YOUR CODE HERE";
 
             newProject.Name = model.Name;
 

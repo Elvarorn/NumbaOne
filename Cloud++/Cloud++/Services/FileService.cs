@@ -40,7 +40,7 @@ namespace Cloud__.Services
             
             newFile.extension = model.FileType;
             newFile.fileName = model.FileName + model.FileType;
-            newFile.content = "default robbatext";
+            newFile.content = "//ADD YOUR CODE HERE";
             newFile.projectId = projectid;
 
             _db.Files.Add(newFile);
