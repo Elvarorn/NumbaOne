@@ -283,3 +283,13 @@ td
     height: 3em;
     color: #428bca;
 }
+
+#LoginInputHelp {
+
+    padding-right: 9em;
+}
+
+#logofixLogin {
+
+        padding-right: 3.5em;
+}
