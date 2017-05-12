@@ -39,13 +39,11 @@
     <div class="midja">
     <table class="midja">
         <tr>
-            <th>ID</th>
             <th>Name</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td><div class="midja"> @item.ID </div></td>
                 <td><a class="midja" href="@Url.Action("AceEditor", "Editor", new {id= @item.ID })">@item.Name</a></td>
             </tr>
         }
